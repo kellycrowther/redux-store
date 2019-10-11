@@ -40,6 +40,8 @@ todoList.addEventListener('click', function(event) {
   const target = event.target as HTMLButtonElement;
   if (target.nodeName.toLowerCase() === 'button') {
     console.log(target);
+    const todo = JSON.parse(target.getAttribute('data-todo') as any);
+    store.dispatch(new fromStore.RemoveTodo(todo));
   }
 });
 
